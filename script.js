@@ -192,6 +192,7 @@ $(document).ready(function () {
         copyBtn.hide();
         resultsTextarea.val("");
         clearBtn.hide();
+        numWords.val("");
         showToast("lightyellow", "rgb(133, 57, 29)", "rgb(133, 57, 29)", "Ipsum Cleared - ready to generate!")
     })
 
