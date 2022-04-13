@@ -7,11 +7,27 @@ body {
     align-items: center;
 }
 
+.input-wrapper {
+    text-align: center;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
 #num-input {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    width: 100%;
     padding: 1rem 2rem;
-    height: 100px;
+    height: 150px;
     justify-content: space-around;
 }
 
@@ -23,6 +39,14 @@ body {
 #submit-btn {
     width: 60%;
     margin: 0 auto;
+    padding: .5rem;
+    background: lightgreen;
+    color:darkgreen;
+}
+
+#type-span {
+    font-weight: bold;
+    color: red;
 }
 
 textarea {

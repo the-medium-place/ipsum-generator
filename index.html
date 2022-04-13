@@ -13,15 +13,27 @@
     <div class="form-wrapper">
 
         <form id="num-input">
+            <div class="input-wrapper">
+                <label for="lorem-type">What would you like to generate?</label>
+                <select name="lorem-type" id="lorem-type">
+                    <option selected value="phrases">Phrases</option>
+                    <option value="paragraphs">Paragraphs</option>
+                </select>
+            </div>
 
-            <label for="num-words">Please enter a number of Lorem items:</label>
-            <input type="number" id="num-words" name="num-words">
+            <div class="input-wrapper">
+                <label for="num-words">
+                    Please enter a number of Lorem <span id="type-span">phrases</span> to generate:
+                </label>
+                <input type="number" id="num-words" name="num-words">
+            </div>
+
             <button type="submit" id="submit-btn">Generate Ipsum!</button>
         </form>
     </div>
 
     <textarea name="results" id="ipsum-results" cols="30" rows="10" readonly
-        placeholder="You Ipsum will appear here..."></textarea>
+        placeholder="Your Ipsum will appear here..."></textarea>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
         integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="

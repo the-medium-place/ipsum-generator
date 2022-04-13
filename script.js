@@ -1,6 +1,8 @@
 const numWords = $("#num-words")
 const inputForm = $("#num-input")
 const submitBtn = $("#submit-btn")
+const typeSpan = $("#type-span")
+const typeSelect = $("#lorem-type")
 
 const resultsTextarea = $("#ipsum-results")
 
@@ -110,31 +112,62 @@ const wordList = [
     "SPOX"
 ]
 
+typeSelect.on("change", () => {
+    typeSpan.text(typeSelect.val())
+})
+
+
 inputForm.on("submit", (e) => {
     e.preventDefault();
     console.log("submitted")
     const inputNum = numWords.val()
-
-    if (inputNum.length === 0) {
-        return alert("Please enter a number!")
-    }
 
     let result = "";
     const punctuation = [
         ".", "?", "!", "...", "-"
     ]
 
-    for (let i = 0; i <= parseInt(inputNum); i++) {
-        const randomInd = Math.floor(Math.random() * (wordList.length - 1));
-        result += (`${i === 0 ? "" : " "}` + wordList[randomInd]);
-
-        const randomChance = Math.floor(Math.random() * 4)
-
-        if (!randomChance) {
-            const randomPunctuation = Math.floor(Math.random() * punctuation.length)
-            result += punctuation[randomPunctuation]
-        }
+    if (inputNum.length === 0) {
+        return alert("Please enter a number!")
     }
-    result += '.'
-    resultsTextarea.val(result)
+
+    if (typeSelect.val() === 'phrases') {
+
+
+
+        for (let i = 0; i < parseInt(inputNum); i++) {
+            const randomInd = Math.floor(Math.random() * (wordList.length - 1));
+            result += (`${i === 0 ? "" : " "}` + wordList[randomInd]);
+
+            const randomChance = Math.floor(Math.random() * 4)
+
+            if (!randomChance) {
+                const randomPunctuation = Math.floor(Math.random() * punctuation.length)
+                result += punctuation[randomPunctuation]
+            }
+        }
+        result += '.'
+        return resultsTextarea.val(result)
+    }
+
+    else {
+        for (let i = 0; i < parseInt(inputNum); i++) {
+            for (let j = 0; j < 22; j++) {
+                const randomInd = Math.floor(Math.random() * (wordList.length - 1));
+                result += (`${j === 0 ? "" : " "}` + wordList[randomInd]);
+
+                const randomChance = Math.floor(Math.random() * 4)
+
+                if (!randomChance) {
+                    const randomPunctuation = Math.floor(Math.random() * punctuation.length)
+                    result += punctuation[randomPunctuation]
+                }
+
+            }
+            result += '.\n\n';
+
+        }
+        return resultsTextarea.val(result)
+
+    }
 })
