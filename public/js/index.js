@@ -1,8 +1,5 @@
 $(document).ready(async function () {
 
-    // const doc = require("./sheets")
-
-    // console.log(doc)
 
     const numWords = $("#num-words")
     const inputForm = $("#num-input")
