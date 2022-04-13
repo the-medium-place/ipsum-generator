@@ -198,7 +198,7 @@ $(document).ready(function () {
     function showToast(bgColor, borderColor, fontColor, text) {
         toastText.css("color", fontColor).text(text)
         toastBox.css("background", bgColor).css("border", `3px solid ${borderColor}`)
-        toastBox.show(() => {
+        toastBox.show(20, "linear", () => {
             setTimeout(() => {
                 toastBox.hide()
             }, 1800);
