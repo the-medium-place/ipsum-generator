@@ -56,10 +56,10 @@ $(document).ready(async function () {
 
                 if (!randomChance) {
                     const randomPunctuation = Math.floor(Math.random() * punctuation.length)
-                    result += punctuation[randomPunctuation]
+                    result += punctuation.includes(result[result.length - 1]) ? '' : punctuation[randomPunctuation]
                 }
             }
-            result += '.'
+            result += punctuation.includes(result[result.length - 1]) ? '' : '.'
             return resultsTextarea.val(result)
         } else {
             for (let i = 0; i < parseInt(inputNum); i++) {
@@ -71,10 +71,11 @@ $(document).ready(async function () {
 
                     if (!randomChance) {
                         const randomPunctuation = Math.floor(Math.random() * punctuation.length)
-                        result += punctuation[randomPunctuation]
+                        result += punctuation.includes(result[result.length - 1]) ? '' : punctuation[randomPunctuation]
                     }
                 }
-                result += '.\n\n';
+                result += punctuation.includes(result[result.length - 1]) ? '\n\n' : '.\n\n'
+
             }
             return resultsTextarea.val(result)
         }
