@@ -4,6 +4,10 @@ $(document).ready(function () {
     const submitBtn = $("#submit-btn")
     const typeSpan = $("#type-span")
     const typeSelect = $("#lorem-type")
+    const copyBtn = $("#lorem-copy")
+    const clearBtn = $("#clear-btn")
+    const toastBox = $("#toast");
+    const toastText = $(".toast-txt")
 
     const resultsTextarea = $("#ipsum-results")
 
@@ -113,12 +117,17 @@ $(document).ready(function () {
         "SPOX"
     ]
 
+    copyBtn.hide();
+    clearBtn.hide();
+    toastBox.hide();
+
     typeSelect.on("change", () => {
         typeSpan.text(typeSelect.val())
     })
 
     inputForm.on("submit", (e) => {
         e.preventDefault();
+
         console.log("submitted")
         const inputNum = numWords.val()
 
@@ -133,6 +142,9 @@ $(document).ready(function () {
 
         if (inputNum.length === 0) {
             return alert("Please enter a number!")
+        } else {
+            copyBtn.show();
+            clearBtn.show();
         }
 
         if (typeSelect.val() === 'phrases') {
@@ -168,4 +180,32 @@ $(document).ready(function () {
             return resultsTextarea.val(result)
         }
     })
+
+    copyBtn.on("click", (e) => {
+        e.preventDefault()
+        showToast("lightgreen", "darkgreen", "darkgreen", "Ipsum Copied to Clipboard!")
+        navigator.clipboard.writeText(resultsTextarea.val())
+    })
+
+    clearBtn.on("click", (e) => {
+        e.preventDefault();
+        copyBtn.hide();
+        resultsTextarea.val("");
+        clearBtn.hide();
+        showToast("lightyellow", "rgb(133, 57, 29)", "rgb(133, 57, 29)", "Ipsum Cleared - ready to generate!")
+    })
+
+    function showToast(bgColor, borderColor, fontColor, text) {
+        toastText.css("color", fontColor).text(text)
+        toastBox.css("background", bgColor).css("border", `3px solid ${borderColor}`)
+        toastBox.show(() => {
+            setTimeout(() => {
+                toastBox.hide()
+            }, 1800);
+        })
+
+    }
+
+
+
 })
