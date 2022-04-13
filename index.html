@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="form-wrapper">
+
+        <form id="num-input">
+
+            <label for="num-words">Please enter a number of Lorem items:</label>
+            <input type="number" id="num-words" name="num-words">
+            <button type="submit" id="submit-btn">Generate Ipsum!</button>
+        </form>
+    </div>
+
+    <textarea name="results" id="ipsum-results" cols="30" rows="10" readonly
+        placeholder="You Ipsum will appear here..."></textarea>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+        integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
