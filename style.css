@@ -21,6 +21,7 @@ body {
     justify-content: center;
 }
 
+
 #num-input {
     display: flex;
     flex-direction: column;
