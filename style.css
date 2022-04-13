@@ -5,6 +5,7 @@ body {
     justify-content:center;
     flex-direction:column;
     align-items: center;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
 }
 
 .input-wrapper {
@@ -16,9 +17,20 @@ body {
     align-items: center;
 }
 
+select, input {
+    border: none;
+    font-size: 125%;
+}
+
 .form-wrapper {
     display: flex;
     justify-content: center;
+    margin-bottom: 60px;
+    margin-top: 40px;
+    background: lightblue;
+    border-radius: 8px;
+    box-shadow: 0px 0px 1.3rem rgba(0,0,0,0.3);
+
 }
 
 
@@ -43,6 +55,12 @@ body {
     padding: .5rem;
     background: lightgreen;
     color:darkgreen;
+    border: none;
+    font-weight: 900;
+}
+
+#submit-btn:active {
+    box-shadow: none;
 }
 
 #type-span {
@@ -51,5 +69,10 @@ body {
 }
 
 textarea {
-    width: 90%;
+    width: 80%;
+    padding: 1rem;
+    border-radius: 8px;
+    border: none;
+    box-shadow: 0px 0px 0.5rem rgba(0, 0, 0, 0.4);
+    font-size: 125%;
 }

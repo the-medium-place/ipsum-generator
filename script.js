@@ -117,7 +117,6 @@ $(document).ready(function () {
         typeSpan.text(typeSelect.val())
     })
 
-
     inputForm.on("submit", (e) => {
         e.preventDefault();
         console.log("submitted")
@@ -125,7 +124,11 @@ $(document).ready(function () {
 
         let result = "";
         const punctuation = [
-            ".", "?", "!", "...", "-"
+            ".",
+            "?",
+            "!",
+            "...",
+            "-"
         ]
 
         if (inputNum.length === 0) {
@@ -133,8 +136,6 @@ $(document).ready(function () {
         }
 
         if (typeSelect.val() === 'phrases') {
-
-
 
             for (let i = 0; i < parseInt(inputNum); i++) {
                 const randomInd = Math.floor(Math.random() * (wordList.length - 1));
@@ -149,9 +150,7 @@ $(document).ready(function () {
             }
             result += '.'
             return resultsTextarea.val(result)
-        }
-
-        else {
+        } else {
             for (let i = 0; i < parseInt(inputNum); i++) {
                 for (let j = 0; j < 22; j++) {
                     const randomInd = Math.floor(Math.random() * (wordList.length - 1));
@@ -163,13 +162,10 @@ $(document).ready(function () {
                         const randomPunctuation = Math.floor(Math.random() * punctuation.length)
                         result += punctuation[randomPunctuation]
                     }
-
                 }
                 result += '.\n\n';
-
             }
             return resultsTextarea.val(result)
-
         }
     })
 })
