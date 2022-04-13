@@ -1,0 +1,29 @@
+{
+  "name": "ipsum-generator",
+  "version": "1.0.0",
+  "description": "",
+  "private": true,
+  "scripts": {
+    "build": "webpack",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/the-medium-place/ipsum-generator.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/the-medium-place/ipsum-generator/issues"
+  },
+  "homepage": "https://github.com/the-medium-place/ipsum-generator#readme",
+  "dependencies": {
+    "compression": "^1.7.4",
+    "dotenv": "^16.0.0",
+    "express": "^4.17.3",
+    "google-spreadsheet": "^3.2.0",
+    "googleapis": "^100.0.0",
+    "morgan": "^1.10.0"
+  }
+}
