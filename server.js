@@ -9,7 +9,7 @@ var compression = require("compression");
 const logger = require("morgan");
 const path = require('path')
 
-const getData = require('./sheets')
+const getData = require('./getData')
 
 // ==============================================================================
 // EXPRESS CONFIGURATION
@@ -24,30 +24,6 @@ app.use(express.static('public'));
 // Sets up the Express app to handle data parsing
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-
-// const { GoogleSpreadsheet } = require("google-spreadsheet");
-// const termArr = [];
-
-// (async function () {
-//     const doc = new GoogleSpreadsheet('1h1ye4D-zT64de2bOjfePVqv_-0tQxG7OC-VPXAcVU8Q')
-
-//     doc.useApiKey('AIzaSyC6Gyskzb6IcE-l6IqOi-tTL6aCoXdnqsE')
-
-//     await doc.loadInfo();
-
-//     const sheet = doc.sheetsByIndex[0];
-
-//     await sheet.loadCells()
-//     const numCells = sheet.cellStats.nonEmpty
-
-
-//     for (let i = 2; i <= numCells; i++) {
-//         const value = sheet.getCellByA1(`A${i}`).value
-//         termArr.push(value)
-//     }
-
-// }());
-
 
 // ================================================================================
 // ROUTER
