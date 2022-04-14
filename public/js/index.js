@@ -36,7 +36,14 @@ $(document).ready(async function () {
         // POSSIBLE PUNCTUATION
         const punctuation = [
             ".",
+            ".",
+            ".",
+            ".",
             "?",
+            "?",
+            "?",
+            "!",
+            "!",
             "!",
             "...",
             " -"
