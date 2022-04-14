@@ -23,6 +23,7 @@ h1 {
     text-align: center;
     width: 100%;
     display: flex;
+    margin: 6px;
     justify-content: center;
     flex-direction: column;
     align-items: center;
@@ -33,6 +34,7 @@ select, input {
     font-size: 125%;
     padding: .3rem;
     margin: 6px;
+    max-width: 30%;
 }
 
 .form-wrapper {
@@ -41,6 +43,7 @@ select, input {
     margin-bottom: 60px;
     margin-top: 40px;
     background: lightblue;
+    padding: 1.3rem 0px;
     border-radius: 8px;
     box-shadow: 0px 0px 1.3rem rgba(0,0,0,0.3);
     width: 60%;

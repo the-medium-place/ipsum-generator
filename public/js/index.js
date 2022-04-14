@@ -44,7 +44,8 @@ $(document).ready(async function () {
 
         if (inputNum.length === 0) {
             // USER DID NOT ENTER NUMBER - UPDATE USER
-            return alert("Please enter a number!")
+            // return alert("Please enter a number!")
+            return showToast("pink", "red", "red", "Please enter a number!")
         } else {
             // USER ENTERED NUMBER - SHOW ACTION BUTTONS
             copyBtn.show();
