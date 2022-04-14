@@ -36,7 +36,7 @@ $(document).ready(async function () {
             "?",
             "!",
             "...",
-            "-"
+            " -"
         ]
 
         if (inputNum.length === 0) {
@@ -47,38 +47,42 @@ $(document).ready(async function () {
         }
 
         if (typeSelect.val() === 'phrases') {
+            generateParagraph(parseInt(inputNum))
+            return resultsTextarea.val(result)
 
+        } else {
             for (let i = 0; i < parseInt(inputNum); i++) {
+                generateParagraph(randomNumber(18, 30))
+                result += "\n\n"
+            }
+            return resultsTextarea.val(result)
+
+        }
+
+
+        function generateParagraph(numPhrases) {
+            for (let i = 0; i < numPhrases; i++) {
                 const randomInd = Math.floor(Math.random() * (wordList.length - 1));
-                result += (`${i === 0 ? "" : " "}` + wordList[randomInd]);
+                // result += (`${i === 0 ? "" : " "}` + wordList[randomInd]);
+                // result += (`${i === 0 ? "" : " "}`)
+                if (i === 0) {
+                    result += titleCase(wordList[randomInd])
+                }
+                result += punctuation.includes(result[result.length - 1]) ? " " + titleCase(wordList[randomInd]) : " " + wordList[randomInd].toLowerCase();
 
                 const randomChance = Math.floor(Math.random() * 4)
 
-                if (!randomChance) {
+                if (!randomChance && i !== numPhrases - 1) {
                     const randomPunctuation = Math.floor(Math.random() * punctuation.length)
                     result += punctuation.includes(result[result.length - 1]) ? '' : punctuation[randomPunctuation]
                 }
             }
             result += punctuation.includes(result[result.length - 1]) ? '' : '.'
-            return resultsTextarea.val(result)
-        } else {
-            for (let i = 0; i < parseInt(inputNum); i++) {
-                for (let j = 0; j < 22; j++) {
-                    const randomInd = Math.floor(Math.random() * (wordList.length - 1));
-                    result += (`${j === 0 ? "" : " "}` + wordList[randomInd]);
 
-                    const randomChance = Math.floor(Math.random() * 4)
-
-                    if (!randomChance) {
-                        const randomPunctuation = Math.floor(Math.random() * punctuation.length)
-                        result += punctuation.includes(result[result.length - 1]) ? '' : punctuation[randomPunctuation]
-                    }
-                }
-                result += punctuation.includes(result[result.length - 1]) ? '\n\n' : '.\n\n'
-
-            }
-            return resultsTextarea.val(result)
         }
+
+
+
     })
 
     copyBtn.on("click", (e) => {
@@ -106,4 +110,16 @@ $(document).ready(async function () {
         })
 
     }
+
+    function titleCase(str) {
+        const firstLetter = str[0];
+        const restOfStr = str.split("").slice(1, (str.length)).join("")
+
+        return firstLetter.toUpperCase() + restOfStr.toLowerCase();
+    }
+
+    function randomNumber(min, max) {
+        return Math.random() * (max - min) + min;
+    }
+
 })
